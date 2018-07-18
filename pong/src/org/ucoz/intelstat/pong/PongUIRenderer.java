@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.Stroke;
+import java.awt.Toolkit;
 import java.util.HashSet;
 
 import org.ucoz.intelstat.pong.UIControlHandler.Button;
@@ -14,6 +15,7 @@ import org.ucoz.intelstat.pong.UIControlHandler.Panel;
 public class PongUIRenderer implements UIControlHandler.Renderer {
 
 	private Font defaultFont = new Font("Century Gothic", Font.BOLD, 32);
+	private FontMetrics defaultFontMetrics = Toolkit.getDefaultToolkit().getFontMetrics(defaultFont);
 	private Stroke buttonStroke = new BasicStroke(5);
 
 	@Override
@@ -30,9 +32,9 @@ public class PongUIRenderer implements UIControlHandler.Renderer {
 				g.setStroke(buttonStroke);
 				g.drawRect(offx + button.posx, offy + button.posy, button.width, button.height);
 				g.setFont(defaultFont);
-				FontMetrics fm = g.getFontMetrics();
-				g.drawString(button.text(), offx + button.posx + (button.width - fm.stringWidth(button.text())) / 2,
-						offy + button.posy + (button.height - fm.getAscent()) / 2);
+				g.drawString(button.text(),
+						offx + button.posx + (button.width - defaultFontMetrics.stringWidth(button.text())) / 2,
+						offy + button.posy + (button.height + defaultFontMetrics.getAscent()) / 2);
 			}
 		}
 	}
