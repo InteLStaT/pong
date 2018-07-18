@@ -6,7 +6,10 @@ import java.awt.event.MouseListener;
 import java.util.HashMap;
 
 public abstract class GameStage {
-
+	
+	private static int stageCount = 0;
+	private static final HashMap<String, GameStage> ALL_STAGES = new HashMap<>();
+	
 	public static final GameStage EMPTY_STAGE = new GameStage("EMPTY-STAGE") {
 		
 		@Override
@@ -33,9 +36,6 @@ public abstract class GameStage {
 			return null;
 		}
 	};
-	
-	private static int stageCount = 0;
-	private static final HashMap<String, GameStage> ALL_STAGES = new HashMap<>();
 	
 	public final int STAGE_ID;
 	public final String STAGE_NAME;
