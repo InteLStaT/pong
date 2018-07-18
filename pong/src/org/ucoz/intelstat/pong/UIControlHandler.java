@@ -1,5 +1,6 @@
 package org.ucoz.intelstat.pong;
 
+import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -138,6 +139,16 @@ public class UIControlHandler {
 			children.remove(control);
 			control.parent = null;
 		}
+		
+		public HashSet<Control> children() {
+			return children;
+		}
+	}
+	
+	public static interface Renderer {
+		
+		public void render(Graphics2D g, HashSet<Control> controls);
+		
 	}
 
 }
