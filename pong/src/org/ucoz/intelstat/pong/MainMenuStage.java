@@ -4,12 +4,14 @@ import java.awt.Graphics2D;
 
 public class MainMenuStage extends GameStage {
 
+	private UIControlHandler uich = new UIControlHandler();
+	
 	public MainMenuStage() {
 		super("main-menu");
 	}
 	
 	@Override
-	public void onLoad(GameStage prevStage) {
+	public void onLoad(GameStage prevStage, int width, int height) {
 		
 	}
 	

@@ -85,6 +85,7 @@ public class GamePanel extends JPanel implements Runnable {
 			if(advanceStage) {
 				GameStage nextStage = currentStage.nextStage();
 				if(nextStage != null) {
+					nextStage.onLoad(currentStage, WIDTH, HEIGHT);
 					currentStage = nextStage;
 				}
 			}

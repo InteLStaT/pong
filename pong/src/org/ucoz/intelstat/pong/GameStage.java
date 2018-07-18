@@ -19,7 +19,7 @@ public abstract class GameStage {
 		ALL_STAGES.put(stageName, this);
 	}
 	
-	public abstract void onLoad(GameStage prevStage);
+	public abstract void onLoad(GameStage prevStage, int width, int height);
 	
 	public abstract void renderFrame(int time, int irfps, Graphics2D g);
 	
