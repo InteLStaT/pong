@@ -15,8 +15,9 @@ public class GamePanel extends JPanel implements Runnable {
 	
 	public final int WIDTH, HEIGHT;
 	public final int IUFPS, IRFPS;
+	private boolean started = false;
 	private int time;
-
+	
 	private final BufferedImage osc;
 	private final Graphics2D g;
 	private final Color BG_COLOR = Color.BLACK;
@@ -36,8 +37,6 @@ public class GamePanel extends JPanel implements Runnable {
 		setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		setFocusable(true);
 		requestFocus();
-
-		gameLoop.start();
 	}
 	
 	@Override
@@ -48,6 +47,13 @@ public class GamePanel extends JPanel implements Runnable {
 		gp.drawImage(osc, 0, 0, null);
 	}
 
+	public void start() {
+		if(started) {
+			throw new IllegalStateException("game already started");
+		}
+		gameLoop.start();
+	}
+	
 	@Override
 	public void run() {
 		while (true) {
