@@ -97,13 +97,23 @@ public class UIControlHandler {
 	public static class Button extends Control {
 
 		private ActionListener action;
+		private String text;
 		
-		public Button(int posx, int posy, int width, int height) {
+		public Button(int posx, int posy, int width, int height, String text) {
 			super(posx, posy, width, height);
+			this.text = text;
 		}
 
 		public void setAction(ActionListener action) {
 			this.action = action;
+		}
+		
+		public String text() {
+			return text;
+		}
+		
+		public void text(String text) {
+			this.text = text;
 		}
 		
 	}
