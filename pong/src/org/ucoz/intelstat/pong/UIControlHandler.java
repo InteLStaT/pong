@@ -23,6 +23,10 @@ public class UIControlHandler {
 		controls.remove(control);
 	}
 	
+	public HashSet<Control> controls() {
+		return controls;
+	}
+	
 	public MouseListener mouseListener() {
 		return new MouseListener() {
 
