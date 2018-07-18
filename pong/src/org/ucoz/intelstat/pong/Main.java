@@ -17,6 +17,7 @@ public class Main {
 		f.pack();
 		f.setLocationRelativeTo(null);
 		f.setVisible(true);
+		GAME_PANEL.setStage(new MainMenuStage());
 		GAME_PANEL.start();
 	}
 	
