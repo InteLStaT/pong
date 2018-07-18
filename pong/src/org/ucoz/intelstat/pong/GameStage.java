@@ -7,6 +7,33 @@ import java.util.HashMap;
 
 public abstract class GameStage {
 
+	public static final GameStage EMPTY_STAGE = new GameStage("EMPTY-STAGE") {
+		
+		@Override
+		public boolean update(int time, int iufps) {
+			// TODO Auto-generated method stub
+			return false;
+		}
+		
+		@Override
+		public void renderFrame(int time, int irfps, Graphics2D g) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		@Override
+		public void onLoad(GameStage prevStage, int width, int height) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		@Override
+		public GameStage nextStage() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+	};
+	
 	private static int stageCount = 0;
 	private static final HashMap<String, GameStage> ALL_STAGES = new HashMap<>();
 	
