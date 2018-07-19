@@ -47,6 +47,7 @@ public class GamePanel extends JPanel implements Runnable {
 
 		setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		setFocusable(true);
+		setIgnoreRepaint(true);
 		requestFocus();
 	}
 
@@ -72,6 +73,8 @@ public class GamePanel extends JPanel implements Runnable {
 			removeMouseListener(currentStage.mouseListener());
 		}
 		addMouseListener(newStage.mouseListener());
+		addMouseMotionListener(newStage.mouseMotionListener());
+		addKeyListener(newStage.keyListener());
 		currentStage = newStage;
 	}
 
