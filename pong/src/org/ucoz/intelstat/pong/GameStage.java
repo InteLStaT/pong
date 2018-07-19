@@ -3,6 +3,7 @@ package org.ucoz.intelstat.pong;
 import java.awt.Graphics2D;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.util.HashMap;
 
 public abstract class GameStage {
@@ -59,6 +60,10 @@ public abstract class GameStage {
 	}
 	
 	public MouseListener mouseListener() {
+		return null;
+	}
+	
+	public MouseMotionListener mouseMotionListener() {
 		return null;
 	}
 	
