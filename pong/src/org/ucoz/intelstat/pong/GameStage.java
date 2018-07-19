@@ -11,7 +11,7 @@ public abstract class GameStage {
 	private static int stageCount = 0;
 	private static final HashMap<String, GameStage> ALL_STAGES = new HashMap<>();
 	
-	public static final GameStage EMPTY_STAGE = new GameStage("EMPTY-STAGE") {
+	public static final GameStage EMPTY_STAGE = new GameStage("EMPTY-STAGE", false, true) {
 		
 		@Override
 		public boolean update(int time, int iufps) {
@@ -41,10 +41,12 @@ public abstract class GameStage {
 	public final int STAGE_ID;
 	public final String STAGE_NAME;
 	
-	public GameStage(String stageName) {
+	public GameStage(String stageName, boolean addId, boolean store) {
 		STAGE_ID = stageCount++;
-		STAGE_NAME = stageName;
-		ALL_STAGES.put(stageName, this);
+		STAGE_NAME = stageName + (addId ? "-" + STAGE_ID : "");
+		if(store) {
+			ALL_STAGES.put(stageName, this);
+		}
 	}
 	
 	public abstract void onLoad(GameStage prevStage, int width, int height);
