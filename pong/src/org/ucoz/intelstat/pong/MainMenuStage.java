@@ -8,7 +8,6 @@ import java.awt.Toolkit;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -24,7 +23,7 @@ public class MainMenuStage extends GameStage {
 	private FontMetrics titleFontMetrics = Toolkit.getDefaultToolkit().getFontMetrics(titleFont);
 	
 	public MainMenuStage() {
-		super("main-menu");
+		super("main-menu", false, true);
 	}
 	
 	@Override
@@ -35,17 +34,28 @@ public class MainMenuStage extends GameStage {
 		uich = new UIControlHandler(width, height);
 		
 		JPanel panel = new JPanel();
-		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+		panel.setLayout(null);
 		panel.setLocation(width/3, height*2/5);
 		panel.setSize(new Dimension(width/3, height*3/5));
 		
 		JButton btnNewGame = new JButton("New game");
-		//btnNewGame.setLocation(0, 0);
+		btnNewGame.setLocation(0, 0);
 		btnNewGame.setSize(new Dimension(width/3, 100));
 		btnNewGame.addActionListener((e) -> {
 			nextStage = new MatchStage();
 		});
 		panel.add(btnNewGame);
+		
+		JButton btnShowInstructions = new JButton("Controls");
+		btnShowInstructions.setLocation(0, 125);
+		btnShowInstructions.setSize(new Dimension(width/3, 100));
+		btnShowInstructions.addActionListener((e) -> {
+			nextStage = GameStage.byName("instructions-stage");
+			if(nextStage == null) {
+				nextStage = new InstructionsStage();
+			}
+		});
+		panel.add(btnShowInstructions);
 		
 		uich.addControl(panel);
 	}
@@ -69,6 +79,8 @@ public class MainMenuStage extends GameStage {
 
 	@Override
 	public GameStage nextStage() {
+		GameStage nextStage = this.nextStage;
+		this.nextStage = null;
 		return nextStage;
 	}
 
