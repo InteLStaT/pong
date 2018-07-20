@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 public class Main {
 
 	public static final String GAME_TITLE = "Pong";
-	private final static GamePanel GAME_PANEL = new GamePanel(900, 800, 16, 16);
+	private final static GamePanel GAME_PANEL = new GamePanel(900, 800, 8, 16);
 	
 	public static void main(String[] args) {
 		JFrame f = new JFrame(GAME_TITLE);
