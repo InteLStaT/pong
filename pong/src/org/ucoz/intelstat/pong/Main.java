@@ -11,9 +11,6 @@ public class Main {
 		JFrame f = new JFrame(GAME_TITLE);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setContentPane(GAME_PANEL);
-		f.setResizable(false); 
-		f.setResizable(true); // ?
-		f.setResizable(false);  // ???
 		f.pack();
 		f.setLocationRelativeTo(null);
 		f.setVisible(true);
